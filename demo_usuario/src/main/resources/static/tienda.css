@@ -1,0 +1,166 @@
+/* ===========================
+   ESTILO GENERAL TIPO ZARA
+   =========================== */
+
+body {
+    font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+    background: #ffffff;
+    margin: 0;
+    padding: 0;
+    color: #111;
+}
+
+/* ===========================
+   MENÚ SUPERIOR PROFESIONAL
+   =========================== */
+
+.navbar {
+    width: 100%;
+    background: #111;
+    color: white;
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .logo {
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.navbar .menu a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.2s;
+}
+
+.navbar .menu a:hover {
+    color: #ccc;
+}
+
+/* ===========================
+   TÍTULOS
+   =========================== */
+
+h1, h2 {
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #111;
+    text-transform: uppercase;
+}
+
+/* ===========================
+   BOTONES
+   =========================== */
+
+button {
+    padding: 12px 22px;
+    background: #111;
+    color: white;
+    border: 1px solid #111;
+    cursor: pointer;
+    border-radius: 2px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: 0.2s ease-in-out;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background: white;
+    color: #111;
+}
+
+/* Botón eliminar (inline style red) */
+button[style*="red"] {
+    background: #c62828 !important;
+    border-color: #c62828 !important;
+}
+
+button[style*="red"]:hover {
+    background: white !important;
+    color: #c62828 !important;
+}
+
+/* ===========================
+   TABLAS
+   =========================== */
+
+.tabla {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.tabla th {
+    background: #111;
+    color: white;
+    padding: 14px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.tabla td {
+    padding: 14px;
+    border-bottom: 1px solid #f2f2f2;
+    font-size: 14px;
+}
+
+.tabla tr:hover {
+    background: #fafafa;
+}
+
+/* ===========================
+   FORMULARIOS
+   =========================== */
+
+form {
+    width: 380px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+label {
+    display: block;
+    margin-bottom: 18px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 1px solid #111;
+}

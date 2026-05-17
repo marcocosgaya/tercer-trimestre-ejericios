@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuarios</title>
+    <link rel="stylesheet" href="tienda.css">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">Mi Tienda</div>
+    <div class="menu">
+        <a href="panel.html">Inicio</a>
+        <a href="usuarios.html">Usuarios</a>
+        <a href="productos.html">Productos</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="detallePedido.html">Detalle Pedido</a>
+    </div>
+</div>
+
+<h1>Usuarios</h1>
+
+<button onclick="window.location.href='usuarioNuevo.html'">Nuevo Usuario</button>
+
+<table class="tabla">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Usuario</th>
+        <th>Password</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody id="tabla-usuarios"></tbody>
+</table>
+
+<script src="Usuario.js"></script>
+
+</body>
+</html>

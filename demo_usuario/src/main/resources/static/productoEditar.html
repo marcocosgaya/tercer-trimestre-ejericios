@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Producto</title>
+    <link rel="stylesheet" href="tienda.css">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">Mi Tienda</div>
+    <div class="menu">
+        <a href="panel.html">Inicio</a>
+        <a href="usuarios.html">Usuarios</a>
+        <a href="productos.html">Productos</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="detallePedido.html">Detalle Pedido</a>
+    </div>
+</div>
+
+<h1>Editar Producto</h1>
+
+<form id="form-editar">
+    <label>Nombre:
+        <input type="text" id="nombre">
+    </label>
+
+    <label>Precio:
+        <input type="number" id="precio" step="0.01">
+    </label>
+
+    <label>Talla:
+        <input type="text" id="talla">
+    </label>
+
+    <label>Color:
+        <input type="text" id="color">
+    </label>
+
+    <button type="submit">Guardar Cambios</button>
+</form>
+
+<script>
+    const id = localStorage.getItem("edit_producto");
+
+    fetch("http://localhost:8080/producto")
+        .then(r => r.json())
+        .then(lista => {
+            const p = lista.find(x => x.id == id);
+            document.getElementById("nombre").value = p.nombre;
+            document.getElementById("precio").value = p.precio;
+            document.getElementById("talla").value = p.talla;
+            document.getElementById("color").value = p.color;
+        });
+
+    document.getElementById("form-editar").addEventListener("submit", e => {
+        e.preventDefault();
+
+        const datos = {
+            id: id,
+            nombre: document.getElementById("nombre").value,
+            precio: document.getElementById("precio").value,
+            talla: document.getElementById("talla").value,
+            color: document.getElementById("color").value
+        };
+
+        fetch("http://localhost:8080/producto/" + id, {
+            method: "PUT",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(datos)
+        }).then(() => window.location.href = "productos.html");
+    });
+</script>
+
+</body>
+</html>

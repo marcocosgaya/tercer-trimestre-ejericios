@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Usuario</title>
+    <link rel="stylesheet" href="tienda.css">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">Mi Tienda</div>
+    <div class="menu">
+        <a href="panel.html">Inicio</a>
+        <a href="usuarios.html">Usuarios</a>
+        <a href="productos.html">Productos</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="detallePedido.html">Detalle Pedido</a>
+    </div>
+</div>
+
+<h1>Editar Usuario</h1>
+
+<form id="form-editar">
+    <label>Usuario:
+        <input type="text" id="usuario">
+    </label>
+
+    <label>Password:
+        <input type="password" id="password">
+    </label>
+
+    <button type="submit">Guardar Cambios</button>
+</form>
+
+<script>
+    const id = localStorage.getItem("edit_usuario");
+
+    fetch("http://localhost:8080/usuario")
+        .then(r => r.json())
+        .then(lista => {
+            const u = lista.find(x => x.id == id);
+            document.getElementById("usuario").value = u.usuario;
+            document.getElementById("password").value = u.password;
+        });
+
+    document.getElementById("form-editar").addEventListener("submit", e => {
+        e.preventDefault();
+
+        const datos = {
+            id: id,
+            usuario: document.getElementById("usuario").value,
+            password: document.getElementById("password").value
+        };
+
+        fetch("http://localhost:8080/usuario/" + id, {
+            method: "PUT",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(datos)
+        }).then(() => window.location.href = "usuarios.html");
+    });
+</script>
+
+</body>
+</html>

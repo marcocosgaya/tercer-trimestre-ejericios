@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="SWING.Prueba4.frmNuevoFormulario">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="b935d" class="javax.swing.JLabel">
+        <constraints border-constraint="Center"/>
+        <properties>
+          <horizontalAlignment value="0"/>
+          <horizontalTextPosition value="4"/>
+          <text value="Nuevo Formulario"/>
+        </properties>
+      </component>
+      <component id="f26a3" class="javax.swing.JButton" binding="btnCerrar">
+        <constraints border-constraint="South"/>
+        <properties>
+          <autoscrolls value="false"/>
+          <contentAreaFilled value="true"/>
+          <opaque value="true"/>
+          <selected value="false"/>
+          <text value="Cerrar"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

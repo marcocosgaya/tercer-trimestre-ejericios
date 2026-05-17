@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clientes</title>
+    <link rel="stylesheet" href="tienda.css">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">Mi Tienda</div>
+    <div class="menu">
+        <a href="panel.html">Inicio</a>
+        <a href="usuarios.html">Usuarios</a>
+        <a href="productos.html">Productos</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="detallePedido.html">Detalle Pedido</a>
+    </div>
+</div>
+
+<h1>Clientes</h1>
+
+<button onclick="window.location.href='clienteNuevo.html'">Nuevo Cliente</button>
+
+<table class="tabla">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Teléfono</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody id="tabla-clientes"></tbody>
+</table>
+
+<script src="Cliente.js"></script>
+
+</body>
+</html>

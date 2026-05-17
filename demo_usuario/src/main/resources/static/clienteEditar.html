@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Cliente</title>
+    <link rel="stylesheet" href="tienda.css">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">Mi Tienda</div>
+    <div class="menu">
+        <a href="panel.html">Inicio</a>
+        <a href="usuarios.html">Usuarios</a>
+        <a href="productos.html">Productos</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="detallePedido.html">Detalle Pedido</a>
+    </div>
+</div>
+
+<h1>Editar Cliente</h1>
+
+<form id="form-editar">
+    <label>Nombre:
+        <input type="text" id="nombre">
+    </label>
+
+    <label>Email:
+        <input type="email" id="email">
+    </label>
+
+    <label>Teléfono:
+        <input type="text" id="telefono">
+    </label>
+
+    <button type="submit">Guardar Cambios</button>
+</form>
+
+<script>
+    const id = localStorage.getItem("edit_cliente");
+
+    fetch("http://localhost:8080/cliente")
+        .then(r => r.json())
+        .then(lista => {
+            const c = lista.find(x => x.id == id);
+            document.getElementById("nombre").value = c.nombre;
+            document.getElementById("email").value = c.email;
+            document.getElementById("telefono").value = c.telefono;
+        });
+
+    document.getElementById("form-editar").addEventListener("submit", e => {
+        e.preventDefault();
+
+        const datos = {
+            id: id,
+            nombre: document.getElementById("nombre").value,
+            email: document.getElementById("email").value,
+            telefono: document.getElementById("telefono").value
+        };
+
+        fetch("http://localhost:8080/cliente/" + id, {
+            method: "PUT",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(datos)
+        }).then(() => window.location.href = "clientes.html");
+    });
+</script>
+
+</body>
+</html>

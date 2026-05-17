@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo Producto</title>
+    <link rel="stylesheet" href="tienda.css">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">Mi Tienda</div>
+    <div class="menu">
+        <a href="panel.html">Inicio</a>
+        <a href="usuarios.html">Usuarios</a>
+        <a href="productos.html">Productos</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="detallePedido.html">Detalle Pedido</a>
+    </div>
+</div>
+
+<h1>Nuevo Producto</h1>
+
+<form id="form-nuevo">
+    <label>Nombre:
+        <input type="text" id="nombre">
+    </label>
+
+    <label>Precio:
+        <input type="number" id="precio" step="0.01">
+    </label>
+
+    <label>Talla:
+        <input type="text" id="talla">
+    </label>
+
+    <label>Color:
+        <input type="text" id="color">
+    </label>
+
+    <button type="submit">Guardar</button>
+</form>
+
+<script>
+    document.getElementById("form-nuevo").addEventListener("submit", e => {
+        e.preventDefault();
+
+        const datos = {
+            nombre: document.getElementById("nombre").value,
+            precio: document.getElementById("precio").value,
+            talla: document.getElementById("talla").value,
+            color: document.getElementById("color").value
+        };
+
+        fetch("http://localhost:8080/producto", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(datos)
+        }).then(() => window.location.href = "productos.html");
+    });
+</script>
+
+</body>
+</html>
